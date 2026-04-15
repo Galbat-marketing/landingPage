@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALBAT — Agencia de Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:#f5f0e8;color:#161518;overflow-x:hidden}
+
+:root{
+  --cream:#f5f0e8;
+  --gold:#e6c98c;
+  --violet:#7b5ea7;
+  --dark:#161518;
+  --white:#ffffff;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(22,21,24,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(230,201,140,0.15)}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:18px;letter-spacing:4px;color:var(--white);font-weight:600}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 60px 60px}
+.hero-bg-accent{position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(123,94,167,0.07);top:-100px;right:-100px;pointer-events:none}
+.hero-bg-accent2{position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(230,201,140,0.04);bottom:-80px;left:-80px;pointer-events:none}
+.hero-line{position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(230,201,140,0.2),transparent);transform:translateX(-50%)}
+.hero-content{text-align:center;z-index:2;max-width:860px}
+.hero-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(230,201,140,0.4);padding:8px 24px;margin-bottom:40px}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(56px,10vw,96px);letter-spacing:12px;color:var(--white);font-weight:700;line-height:1;margin-bottom:32px}
+.hero-title span{color:var(--gold)}
+.hero-tagline{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:32px auto}
+.hero-desc{font-family:'Montserrat',sans-serif;font-size:15px;line-height:1.9;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 52px}
+.hero-cta{display:inline-block;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:16px 48px;text-decoration:none;transition:all .3s;border:1px solid var(--gold)}
+.hero-cta:hover{background:transparent;color:var(--gold)}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(230,201,140,0.5),transparent)}
+
+/* SHIELD SVG */
+.shield{width:36px;height:42px}
+
+/* SECTION BASE */
+section{padding:110px 60px}
+.section-tag{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);margin-bottom:16px}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(30px,4vw,46px);color:var(--dark);font-weight:600;margin-bottom:24px;line-height:1.2}
+.section-line{width:50px;height:2px;background:var(--gold);margin-bottom:40px}
+
+/* ABOUT */
+.about{background:var(--cream)}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.about-visual{position:relative}
+.about-box-main{background:var(--violet);padding:48px;position:relative}
+.about-box-main-text{font-family:'Cinzel',serif;font-size:28px;letter-spacing:6px;color:var(--white);font-weight:600}
+.about-box-accent{position:absolute;bottom:-24px;right:-24px;width:80px;height:80px;background:var(--gold)}
+.about-quote{margin-top:48px;padding:32px;border-left:2px solid var(--gold);background:rgba(230,201,140,0.08)}
+.about-quote p{font-family:'Montserrat',sans-serif;font-size:13px;line-height:2;color:rgba(22,21,24,0.7);font-style:italic}
+.about-text p{font-family:'Montserrat',sans-serif;font-size:15px;line-height:2;color:rgba(22,21,24,0.7);margin-bottom:20px}
+
+/* VISION MISSION */
+.vm{background:var(--dark)}
+.vm-inner{max-width:1100px;margin:0 auto}
+.vm-header{text-align:center;margin-bottom:80px}
+.vm-header .section-title{color:var(--white)}
+.vm-header .section-line{margin:0 auto 0}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.vm-card{padding:64px;background:rgba(255,255,255,0.03);border:1px solid rgba(230,201,140,0.1);position:relative;overflow:hidden;transition:background .3s}
+.vm-card:hover{background:rgba(123,94,167,0.08)}
+.vm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.vm-card-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.vm-card-title{font-family:'Cinzel',serif;font-size:28px;color:var(--white);font-weight:600;margin-bottom:28px}
+.vm-card p{font-family:'Montserrat',sans-serif;font-size:14px;line-height:2;color:rgba(255,255,255,0.5)}
+
+/* VALUES */
+.values{background:var(--cream)}
+.values-inner{max-width:1100px;margin:0 auto}
+.values-header{margin-bottom:72px}
+.values-pills{display:flex;flex-wrap:wrap;gap:16px}
+.pill{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;padding:14px 32px;border:1px solid;cursor:default;transition:all .3s;font-weight:400}
+.pill-outline{border-color:rgba(22,21,24,0.25);color:var(--dark);background:transparent}
+.pill-filled{border-color:var(--violet);color:var(--white);background:var(--violet)}
+.pill:hover{background:var(--violet);border-color:var(--violet);color:var(--white)}
+
+.values-desc{margin-top:64px;max-width:680px}
+.values-desc p{font-family:'Montserrat',sans-serif;font-size:15px;line-height:2;color:rgba(22,21,24,0.65)}
+
+/* SERVICES */
+.services{background:var(--dark)}
+.services-inner{max-width:1100px;margin:0 auto}
+.services-header{text-align:center;margin-bottom:80px}
+.services-header .section-title{color:var(--white)}
+.services-header .section-tag{color:var(--gold)}
+.services-header .section-line{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px}
+.srv-card{padding:48px 36px;background:rgba(255,255,255,0.02);border:1px solid rgba(230,201,140,0.08);position:relative;overflow:hidden;transition:all .4s;cursor:default}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:rgba(123,94,167,0.15);transition:height .4s}
+.srv-card:hover::after{height:100%}
+.srv-card:hover{border-color:rgba(123,94,167,0.4)}
+.srv-num{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:28px;display:block}
+.srv-icon{width:40px;height:40px;margin-bottom:28px;opacity:0.7}
+.srv-title{font-family:'Cinzel',serif;font-size:18px;color:var(--white);font-weight:600;margin-bottom:16px;position:relative;z-index:1}
+.srv-desc{font-family:'Montserrat',sans-serif;font-size:13px;line-height:1.9;color:rgba(255,255,255,0.4);position:relative;z-index:1}
+
+/* IDENTITY QUOTE */
+.identity{background:var(--violet);padding:100px 60px;text-align:center}
+.identity-inner{max-width:760px;margin:0 auto}
+.identity blockquote{font-family:'Cinzel',serif;font-size:clamp(20px,3vw,30px);color:var(--white);font-weight:400;line-height:1.7;letter-spacing:1px}
+.identity cite{display:block;margin-top:32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-style:normal}
+
+/* CONTACT */
+.contact{background:var(--dark);padding:110px 60px}
+.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
+.contact-info{border-top:2px solid var(--gold);padding-top:48px}
+.contact-info .section-title{color:var(--white)}
+.contact-intro{font-family:'Montserrat',sans-serif;font-size:14px;line-height:2;color:rgba(255,255,255,0.5);margin-bottom:56px}
+.contact-items{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;align-items:flex-start;gap:20px}
+.contact-item-icon{width:40px;height:40px;background:rgba(123,94,167,0.2);border:1px solid rgba(123,94,167,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-item-icon svg{width:16px;height:16px;stroke:var(--violet);fill:none;stroke-width:1.5}
+.contact-item-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.contact-item-value{font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(255,255,255,0.65)}
+.contact-form-side{padding-top:0}
+.contact-form-side .section-tag{color:var(--gold)}
+.contact-form-side .section-title{color:var(--white)}
+.form-group{margin-bottom:24px}
+.form-group label{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:14px 18px;font-family:'Montserrat',sans-serif;font-size:14px;color:var(--white);outline:none;transition:border .3s;resize:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.2)}
+.form-group input:focus,.form-group textarea:focus{border-color:rgba(123,94,167,0.6)}
+.form-submit{width:100%;background:var(--gold);border:none;padding:16px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dark);cursor:pointer;transition:all .3s;font-weight:600}
+.form-submit:hover{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,0.6);padding:32px 60px;border-top:1px solid rgba(230,201,140,0.1);display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'Cinzel',serif;font-size:14px;letter-spacing:4px;color:rgba(255,255,255,0.4)}
+.footer-text{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  section{padding:80px 24px}
+  .hero{padding:100px 24px 80px}
+  .about-inner,.vm-grid,.services-grid,.contact-inner{grid-template-columns:1fr}
+  .about-inner{gap:48px}
+  .vm-card{padding:40px 28px}
+  .contact-inner{gap:56px}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="shield" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 2L47 10V34C47 46 37 55 25 59C13 55 3 46 3 34V10Z" stroke="#e6c98c" stroke-width="1.5" fill="rgba(230,201,140,0.06)"/>
+      <path d="M25 2L47 10V34C47 46 37 55 25 59C13 55 3 46 3 34V10Z" stroke="#7b5ea7" stroke-width="0.5" fill="none"/>
+      <text x="25" y="36" text-anchor="middle" font-family="Cinzel,serif" font-size="14" fill="#e6c98c" font-weight="600">GB</text>
+    </svg>
+    <span class="nav-logo-text">GALBAT</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#vision">Visión</a></li>
+    <li><a href="#valores">Valores</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-accent"></div>
+  <div class="hero-bg-accent2"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Agencia de Marketing · 2026</div>
+    <h1 class="hero-title">GAL<span>BAT</span></h1>
+    <p class="hero-tagline">Estrategia · Prestigio · Honor</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">No nace para competir en volumen. Nace para construir reputación. Desde Cuba hacia el mundo, protegemos y proyectamos marcas con visión internacional.</p>
+    <a href="#contacto" class="hero-cta">Trabajemos juntos</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="about-visual fade-in">
+      <div class="about-box-main">
+        <div class="about-box-main-text">GALBAT</div>
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:12px">Agencia de Marketing</p>
+        <svg style="position:absolute;bottom:20px;right:20px;opacity:0.15" width="80" height="90" viewBox="0 0 50 60" fill="none">
+          <path d="M25 2L47 10V34C47 46 37 55 25 59C13 55 3 46 3 34V10Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="about-box-accent"></div>
+      <div class="about-quote">
+        <p>"GALBAT no improvisa.<br>Construye reputación."</p>
+      </div>
+    </div>
+    <div class="about-text fade-in">
+      <p class="section-tag">Introducción</p>
+      <h2 class="section-title">Una firma estratégica con legado</h2>
+      <div class="section-line"></div>
+      <p>Nace como una agencia integral con una visión clara: transformar negocios en marcas con legado.</p>
+      <p>Su nombre surge de la unión de los apellidos de su fundadora, convirtiendo la identidad personal en un símbolo de compromiso, responsabilidad y honor profesional.</p>
+      <p>Desde Cuba, se proyecta como un puente entre el talento nacional y el mercado internacional, combinando disciplina, innovación y excelencia para posicionar empresas, instituciones y marcas personales con estándares globales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="vm" id="vision" style="padding:0">
+  <div class="vm-inner" style="max-width:100%">
+    <div class="vm-header" style="padding:110px 60px 80px">
+      <p class="section-tag" style="color:rgba(230,201,140,0.7)">Propósito</p>
+      <h2 class="section-title" style="color:white">Nuestra brújula estratégica</h2>
+      <div class="section-line" style="margin:0 auto"></div>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card fade-in" style="padding:64px">
+        <div class="vm-card-label">Visión</div>
+        <div class="vm-card-title">Transformar negocios</div>
+        <p>Convertirse en la agencia referente del marketing moderno en Cuba, reconocida por su excelencia estratégica y su capacidad de proyectar empresas nacionales e institucionales hacia mercados internacionales, con expansión futura en América Latina, Europa, Estados Unidos y el Caribe.</p>
+      </div>
+      <div class="vm-card fade-in" style="padding:64px">
+        <div class="vm-card-label">Misión</div>
+        <div class="vm-card-title">Construir reputación</div>
+        <p>Transformar negocios en marcas sólidas y competitivas mediante estrategias personalizadas, integrales y disciplinadas, elevando su posicionamiento en Cuba y en el mercado internacional con honor y visión de largo plazo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" id="valores">
+  <div class="values-inner">
+    <div class="values-header fade-in">
+      <p class="section-tag">Identidad</p>
+      <h2 class="section-title">Voz y Tono</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="values-pills fade-in">
+      <div class="pill pill-filled">Estratégica</div>
+      <div class="pill pill-filled">Visionaria</div>
+      <div class="pill pill-outline">Disciplinada</div>
+      <div class="pill pill-outline">Precisa</div>
+      <div class="pill pill-outline">Elegante</div>
+      <div class="pill pill-filled">Auténtica</div>
+      <div class="pill pill-outline">Internacional</div>
+    </div>
+    <div class="values-desc fade-in">
+      <p>GALBAT habla con calma estratégica. Es una voz femenina elegante, segura, empática y firme. No es agresiva, pero sí decidida. Comunica con claridad, sin exageraciones, y transmite autoridad sin necesidad de imponerse.</p>
+      <p style="margin-top:16px">Es aspiracional, pero realista. Emocional, pero estructurada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTITY QUOTE -->
+<div class="identity">
+  <div class="identity-inner fade-in">
+    <blockquote>"Cuando la estética y la estrategia se unen, no puedes pasarlo por alto."</blockquote>
+    <cite>— GALBAT · Agencia de Marketing</cite>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-inner">
+    <div class="services-header fade-in">
+      <p class="section-tag">Lo que hacemos</p>
+      <h2 class="section-title">Servicios GALBAT</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card fade-in">
+        <span class="srv-num">01</span>
+        <svg class="srv-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#e6c98c" stroke-width="1.2"/>
+          <path d="M12 16h16M12 20h10" stroke="#e6c98c" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="srv-title">Branding Estratégico</div>
+        <p class="srv-desc">Construimos identidades de marca sólidas, memorables y coherentes con la visión y valores de cada cliente. Cada elemento visual y narrativo tiene propósito.</p>
+      </div>
+      <div class="srv-card fade-in">
+        <span class="srv-num">02</span>
+        <svg class="srv-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="14" stroke="#e6c98c" stroke-width="1.2"/>
+          <path d="M20 12v8l5 3" stroke="#e6c98c" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="srv-title">Estrategia de Marketing</div>
+        <p class="srv-desc">Diseñamos planes estratégicos personalizados con objetivos claros, métricas definidas y ejecución disciplinada orientada a resultados reales y medibles.</p>
+      </div>
+      <div class="srv-card fade-in">
+        <span class="srv-num">03</span>
+        <svg class="srv-icon" viewBox="0 0 40 40" fill="none">
+          <rect x="6" y="10" width="10" height="20" rx="5" stroke="#e6c98c" stroke-width="1.2"/>
+          <rect x="24" y="6" width="10" height="28" rx="5" stroke="#e6c98c" stroke-width="1.2"/>
+        </svg>
+        <div class="srv-title">Social Media</div>
+        <p class="srv-desc">Gestionamos presencias digitales con contenido estratégico, diseño premium y narrativas que posicionan marcas con autoridad en cada plataforma.</p>
+      </div>
+      <div class="srv-card fade-in">
+        <span class="srv-num">04</span>
+        <svg class="srv-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="14" stroke="#e6c98c" stroke-width="1.2"/>
+          <path d="M8 20 Q14 10 20 20 Q26 30 32 20" stroke="#e6c98c" stroke-width="1.2" fill="none"/>
+          <path d="M20 6v28M6 20h28" stroke="#e6c98c" stroke-width="0.6" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="srv-title">Posicionamiento Internacional</div>
+        <p class="srv-desc">Proyectamos marcas cubanas hacia mercados internacionales con estrategias de expansión y adaptación cultural para América Latina, Europa y el Caribe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-info fade-in">
+      <p class="section-tag" style="color:var(--gold)">Hablemos</p>
+      <h2 class="section-title">Contacto</h2>
+      <p class="contact-intro">Desde Cuba hacia el mundo. Si tienes una marca que merece legado, estamos listos para construirlo juntos.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Correo</div>
+            <div class="contact-item-value">galbat.agency@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Teléfono</div>
+            <div class="contact-item-value">+53 55956206</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Sitio Web</div>
+            <div class="contact-item-value">www.galbatagency.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Dirección</div>
+            <div class="contact-item-value">Calle 25 entre 8 y 10, Vedado, La Habana. Cuba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="contact-form-side fade-in"> -->
+      <p class="section-tag">Escríbenos</p>
+      <h2 class="section-title">¿Tienes un proyecto?</h2>
+      <div class="section-line"></div>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="correo@ejemplo.com">
+      </div>
+      <div class="form-group">
+        <label>Empresa o marca</label>
+        <input type="text" placeholder="Nombre de tu empresa">
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+      </div>
+      <button class="form-submit">Enviar mensaje</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0d0c0f;padding:32px 60px;border-top:1px solid rgba(230,201,140,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+  <div style="display:flex;align-items:center;gap:10px">
+    <svg width="24" height="28" viewBox="0 0 50 60" fill="none">
+      <path d="M25 2L47 10V34C47 46 37 55 25 59C13 55 3 46 3 34V10Z" stroke="#e6c98c" stroke-width="1.5" fill="none"/>
+      <text x="25" y="36" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="#e6c98c">GB</text>
+    </svg>
+    <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,0.4)">GALBAT</span>
+  </div>
+  <span style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.2)">© 2026 GALBAT Agencia de Marketing. Todos los derechos reservados.</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  })
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+document.querySelector('.form-submit').addEventListener('click',function(){
+  const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
+  let ok = true;
+  inputs.forEach(i=>{if(!i.value.trim())ok=false});
+  if(ok){
+    this.textContent='¡Mensaje enviado!';
+    this.style.background='rgba(123,94,167,0.3)';
+    this.style.color='#c9b6e4';
+    this.style.border='1px solid rgba(123,94,167,0.5)';
+    inputs.forEach(i=>i.value='');
+    inputs.forEach(i => console.log(i.value));
+    setTimeout(()=>{this.textContent='Enviar mensaje';this.style.cssText=''},3000);
+  }else{
+    this.textContent='Completa todos los campos';
+    this.style.background='rgba(180,60,60,0.2)';
+    this.style.color='#e88';
+    this.style.border='1px solid rgba(180,60,60,0.4)';
+    setTimeout(()=>{this.textContent='Enviar mensaje';this.style.cssText=''},2000);
+  }
+});
+</script>
+</body>
+</html>
